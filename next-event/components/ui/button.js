@@ -3,12 +3,17 @@ import styles from './button.module.css'
 
 
 export default function Button(props) {
-    return (
-        <div>
-            <Link href={props.link}>
-                <a className={styles.btn}>{props.children}</a>
-            </Link>
 
-        </div>
-    )
+    if(props.link) {
+        return (
+            <div>
+                <Link href={props.link}>
+                    <a className={styles.btn}>{props.children}</a>
+                </Link>
+    
+            </div>
+        )
+    }
+    
+    return <button className={styles.btn} onClick={props.onClick}>{props.children}</button>
 }
